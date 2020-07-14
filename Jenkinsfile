@@ -1,19 +1,28 @@
 pipeline {
-    agent any
+    agent { node { label 'osboxes' } }
     stages {
-        stage('---clean---') {
+        stage('Example clean') {
             steps {
-                sh "mvn clean"
+                sh "rm -rf my-app"
+                sh "git clone https://github.com/connectme2soft/my-app.git"
+                sh "mvn clean -f my-app"
             }
         }
-        stage('--test--') {
+        
+        stage('Maven install') {
+            
             steps {
-                sh "mvn test"
+                sh "mvn install -f my-app"
             }
         }
-        stage('--package--') {
+        stage('Maven test') {
             steps {
-                sh "mvn package"
+                sh "mvn test -f my-app"
+            }
+        }
+        stage(Maven package') {
+            steps {
+                sh "mvn package -f my-app"
             }
         }
     }
