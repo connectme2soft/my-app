@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Example clean') {
             steps {
-                sh "rm -rf my-app"
-                sh "git clone https://github.com/connectme2soft/my-app.git"
+            
+                
                 sh "mvn clean -f my-app"
             }
         }
