@@ -1,7 +1,7 @@
 pipeline {
     agent { node { label 'osboxes' } }
     stages {
-        stage('Example clean') {
+        stage('Mavene clean') {
             steps {
             
                 
