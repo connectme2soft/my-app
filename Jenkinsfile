@@ -20,7 +20,7 @@ pipeline {
                 sh "mvn test -f my-app"
             }
         }
-        stage(Maven package') {
+        stage('Maven package') {
             steps {
                 sh "mvn package -f my-app"
             }
